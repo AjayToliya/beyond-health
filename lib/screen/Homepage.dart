@@ -448,7 +448,7 @@ class _homePageState extends State<homePage> {
                                                                           left:
                                                                               25),
                                                                   child: Text(
-                                                                    "${e['price']}",
+                                                                    "\$${e['price']}",
                                                                     style: TextStyle(
                                                                         fontSize:
                                                                             20,
@@ -502,18 +502,27 @@ class _homePageState extends State<homePage> {
                                                                             37,
                                                                         width:
                                                                             37,
-                                                                        decoration: BoxDecoration(
-                                                                            color: Colors.green,
-                                                                            borderRadius: BorderRadius.only(
-                                                                              bottomRight: Radius.circular(15),
-                                                                              topLeft: Radius.circular(15),
-                                                                            )),
+                                                                        decoration:
+                                                                            BoxDecoration(
+                                                                          color:
+                                                                              Colors.green,
+                                                                          borderRadius:
+                                                                              BorderRadius.only(
+                                                                            bottomRight:
+                                                                                Radius.circular(15),
+                                                                            topLeft:
+                                                                                Radius.circular(15),
+                                                                          ),
+                                                                        ),
                                                                         child:
                                                                             Padding(
-                                                                          padding: const EdgeInsets
-                                                                              .only(
-                                                                              right: 7,
-                                                                              bottom: 6),
+                                                                          padding:
+                                                                              const EdgeInsets.only(
+                                                                            right:
+                                                                                7,
+                                                                            bottom:
+                                                                                6,
+                                                                          ),
                                                                           child:
                                                                               Icon(
                                                                             Icons.done,

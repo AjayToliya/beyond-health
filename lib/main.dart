@@ -1,3 +1,4 @@
+import 'package:appmenia/screen/Bill.dart';
 import 'package:appmenia/screen/Cart.dart';
 import 'package:appmenia/screen/Homepage.dart';
 import 'package:appmenia/screen/details.dart';
@@ -13,6 +14,7 @@ void main() {
         'product_detailPage': (context) => detailPage(),
         'cart_page': (context) => cartPage(),
         'favorite_page': (context) => favoritePage(),
+        'bill': (context) => bill(),
       },
     ),
   );

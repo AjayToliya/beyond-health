@@ -2,6 +2,7 @@ import 'package:appmenia/utils/button.dart';
 import 'package:appmenia/utils/data.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 
 class cartPage extends StatefulWidget {
   const cartPage({super.key});
@@ -220,69 +221,8 @@ class _cartPageState extends State<cartPage> {
                     ),
                   ),
                 ),
-                Padding(
-                  padding: const EdgeInsets.only(bottom: 20),
-                  child: Container(
-                    height: 85,
-                    width: 373,
-                    padding: EdgeInsets.all(19),
-                    decoration: BoxDecoration(
-                      boxShadow: <BoxShadow>[
-                        BoxShadow(
-                            spreadRadius: 1,
-                            blurRadius: 5,
-                            color: Colors.grey.shade400,
-                            offset: Offset(0, 2))
-                      ],
-                      borderRadius: BorderRadius.circular(15),
-                      color: Colors.white,
-                    ),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Row(
-                          children: [
-                            Icon(
-                              Icons.fact_check_outlined,
-                              color: Colors.grey,
-                            ),
-                            SizedBox(width: 8),
-                            Text(
-                              "Promo Code",
-                              style: TextStyle(
-                                  color: Colors.grey.shade400,
-                                  fontSize: 18,
-                                  fontWeight: FontWeight.bold),
-                            )
-                          ],
-                        ),
-                        Row(
-                          children: [
-                            Container(
-                              height: 45,
-                              width: 110,
-                              decoration: BoxDecoration(
-                                color: Colors.green,
-                                borderRadius: BorderRadius.circular(40),
-                              ),
-                              alignment: Alignment.center,
-                              child: Text(
-                                "Apply",
-                                style: TextStyle(
-                                  fontSize: 16,
-                                  color: Colors.white,
-                                  fontWeight: FontWeight.bold,
-                                ),
-                              ),
-                            ),
-                          ],
-                        )
-                      ],
-                    ),
-                  ),
-                ),
                 Expanded(
-                  flex: 3,
+                  flex: 1,
                   child: Container(
                     color: Colors.white,
                     child: Padding(
@@ -290,50 +230,6 @@ class _cartPageState extends State<cartPage> {
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.spaceAround,
                         children: [
-                          Padding(
-                            padding: const EdgeInsets.only(top: 10),
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Text(
-                                  "Subtotal",
-                                  style: TextStyle(
-                                    fontSize: 18,
-                                  ),
-                                ),
-                                Text(
-                                  "\$${ProductData.totalPrice()}",
-                                  style: TextStyle(
-                                    fontSize: 18,
-                                  ),
-                                )
-                              ],
-                            ),
-                          ),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Text(
-                                "Delivery",
-                                style: TextStyle(
-                                  fontSize: 18,
-                                ),
-                              ),
-                              (ProductData.cartProductData.isEmpty)
-                                  ? Text(
-                                      "\$0.0",
-                                      style: TextStyle(
-                                        fontSize: 18,
-                                      ),
-                                    )
-                                  : Text(
-                                      "\$3.50",
-                                      style: TextStyle(
-                                        fontSize: 18,
-                                      ),
-                                    ),
-                            ],
-                          ),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
@@ -343,7 +239,7 @@ class _cartPageState extends State<cartPage> {
                                     fontSize: 18, fontWeight: FontWeight.w700),
                               ),
                               Text(
-                                "\$ ${ProductData.grandTotal()}",
+                                "\$ ${ProductData.totalPrice()}",
                                 style: TextStyle(
                                     fontSize: 18, fontWeight: FontWeight.w700),
                               )
@@ -351,21 +247,28 @@ class _cartPageState extends State<cartPage> {
                           ),
                           // Padding(
                           //padding: const EdgeInsets.only(top: 160),
-                          Container(
-                            height: 70,
-                            width: 360,
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(15),
-                              color: Colors.green,
-                            ),
-                            alignment: Alignment.center,
-                            child: Text(
-                              "CHECKOUT",
-                              style: TextStyle(
-                                color: Colors.white,
-                                fontWeight: FontWeight.w500,
-                                letterSpacing: 1,
-                                fontSize: 20,
+                          GestureDetector(
+                            onTap: () {
+                              setState(() {
+                                Navigator.of(context).pushNamed('bill');
+                              });
+                            },
+                            child: Container(
+                              height: 70,
+                              width: 360,
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(15),
+                                color: Colors.green,
+                              ),
+                              alignment: Alignment.center,
+                              child: Text(
+                                "CHECKOUT",
+                                style: TextStyle(
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.w500,
+                                  letterSpacing: 1,
+                                  fontSize: 20,
+                                ),
                               ),
                             ),
                           ),

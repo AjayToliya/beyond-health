@@ -5,6 +5,40 @@ class ProductData {
   static Set<Map<String, dynamic>> favData = {};
   static List<Map<String, dynamic>> favProductData = [];
 
+  static void convertUniiqueData() {
+    cartProductData = cartData.toList();
+  }
+
+  static void convertData() {
+    favProductData = favData.toList();
+  }
+
+  static num totalPrice() {
+    num sum = 0;
+    for (var element in cartProductData) {
+      sum = sum + (element['total']);
+    }
+    return sum;
+  }
+
+  static String pdfName = "Dmart";
+  static num dis() {
+    num dis = 0;
+    for (var element in cartProductData) {
+      dis = dis + (element['discountPercentages'] * element['count']);
+    }
+    return dis;
+  }
+
+  static num grandTotal() {
+    num add = 0;
+
+    add = totalPrice() - dis();
+
+    return add;
+  }
+
+  static num end = 0;
   static List<Map<String, dynamic>> allProductsData = <Map<String, dynamic>>[
     {
       'name': 'Fruit Salad',
@@ -14,8 +48,8 @@ class ProductData {
           "title": "Tropical Salad",
           "description":
               "A delightful blend of tropical fruits that will transport you to a paradise island.",
-          "price": 15.00,
-          "discountPercentages": 5.00,
+          "price": 15,
+          "discountPercentages": 5,
           "rating": 4.5,
           "count": 0,
           "kcl": "150",
@@ -29,22 +63,22 @@ class ProductData {
           "thumbnail":
               "https://i2.wp.com/www.downshiftology.com/wp-content/uploads/2019/07/Caprese-Salad-main-1.jpg",
           "image": [
-            "https://healthyfitnessmeals.com/wp-content/uploads/2022/05/Fruit-salad-recipe-4.jpg",
+            "https://healthyfitnessmeals.com/wp-content/uploa0ds/2022/05/Fruit-salad-recipe-4.jpg",
           ]
         },
         {
           "id": 2,
           "title": "Berry Blast Salad",
           "description": "A burst of freshness with a mix of assorted berries.",
-          "price": 12.00,
-          "discountPercentages": 0.00,
+          "price": 12,
+          "discountPercentages": 6,
           "rating": 4.7,
           "total": 12,
           "count": 0,
           "kcl": "120",
           "average": "5-10",
           "time": 8,
-          "delivery": 3.50,
+          "delivery": 3,
           "category": "Hot sale",
           "like": false,
           "Ingradients": ["🍎", "🍋", "🍍", "🥥", "🍇"],
@@ -64,8 +98,8 @@ class ProductData {
           "title": "Caprese Salad",
           "description":
               "A zesty and satisfying salad featuring classic taco flavors with a spicy kick.",
-          "price": 16.00,
-          "discountPercentages": 0.00,
+          "price": 16,
+          "discountPercentages": 2,
           "rating": 4.9,
           "count": 0,
           "kcl": "220",
@@ -73,7 +107,7 @@ class ProductData {
           "average": "10-15",
           "time": 15,
           "like": false,
-          "delivery": 3.50,
+          "delivery": 3,
           "Ingradients": ["🍎", "🍋", "🍍", "🥥", "🍇"],
           "thumbnail":
               "https://www.veganfriendly.org.uk/wp-content/uploads/2022/09/high-protein-vegan-salad.jpg",
@@ -86,8 +120,8 @@ class ProductData {
           "title": "Fiesta Salad",
           "description":
               "A vibrant and flavorful salad inspired by the rich culinary heritage of Mexico.",
-          "price": 18.00,
-          "discountPercentages": 8.00,
+          "price": 18,
+          "discountPercentages": 8,
           "rating": 4.6,
           "count": 0,
           "kcl": "180",
@@ -113,8 +147,8 @@ class ProductData {
           "title": "Greek Salad",
           "description":
               "A refreshing and authentic Greek salad featuring crisp vegetables and tangy feta cheese.",
-          "price": 14.00,
-          "discountPercentages": 5.00,
+          "price": 14,
+          "discountPercentages": 5,
           "rating": 4.7,
           "total": 14,
           "kcl": "160",
@@ -135,8 +169,8 @@ class ProductData {
           "title": "Veggie Salad",
           "description":
               "A vibrant salad bursting with Mediterranean flavors, featuring fresh vegetables and olives.",
-          "price": 16.00,
-          "discountPercentages": 0.00,
+          "price": 16,
+          "discountPercentages": 1,
           "rating": 4.8,
           "kcl": "180",
           "count": 0,
@@ -162,8 +196,8 @@ class ProductData {
           "title": "Garden Salad",
           "description":
               "A vibrant and nutritious salad made with a variety of fresh garden vegetables.",
-          "price": 12.00,
-          "discountPercentages": 0.00,
+          "price": 12,
+          "discountPercentages": 9,
           "rating": 4.5,
           "kcl": "120",
           "count": 0,
@@ -184,8 +218,8 @@ class ProductData {
           "title": "Chickpea Salad",
           "description":
               "A hearty and flavorful salad featuring chickpeas, tomatoes, cucumbers, and Mediterranean herbs.",
-          "price": 14.00,
-          "discountPercentages": 0.00,
+          "price": 14,
+          "discountPercentages": 0,
           "rating": 4.6,
           "kcl": "180",
           "average": "10-15",
@@ -211,8 +245,8 @@ class ProductData {
           "title": "Caprese Salad",
           "description":
               "A classic Italian salad made with fresh tomatoes, mozzarella cheese, basil, and a drizzle of balsamic glaze.",
-          "price": 16.00,
-          "discountPercentages": 0.00,
+          "price": 16,
+          "discountPercentages": 2,
           "rating": 4.8,
           "kcl": "150",
           "average": "5-10",
@@ -233,8 +267,8 @@ class ProductData {
           "title": "Panzanella Salad",
           "description":
               "A Tuscan-style salad made with stale bread, tomatoes, cucumbers, onions, and fresh basil, tossed in a tangy vinaigrette.",
-          "price": 14.00,
-          "discountPercentages": 0.00,
+          "price": 14,
+          "discountPercentages": 4,
           "rating": 4.7,
           "kcl": "170",
           "average": "10-15",
@@ -253,28 +287,4 @@ class ProductData {
       ],
     },
   ];
-
-  static void convertUniiqueData() {
-    cartProductData = cartData.toList();
-  }
-
-  static void convertData() {
-    favProductData = favData.toList();
-  }
-
-  static num totalPrice() {
-    num sum = 0.0;
-    for (var element in cartProductData) {
-      sum = sum + element['total'];
-    }
-    return sum;
-  }
-
-  static num grandTotal() {
-    num add = 0.0;
-    for (var element in cartProductData) {
-      add = totalPrice() + element['delivery'];
-    }
-    return add;
-  }
 }
